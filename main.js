@@ -9,18 +9,15 @@ const bttn = document.querySelectorAll(".bttn")[0]
 const bttn2 = document.querySelectorAll(".bttn")[1]
 function change_styles(node) {
     node.style.color = "white"
-    node.style.backgroundColor = "red"
+    node.style.backgroundColor = "black"
     node.style.textAlign = "center"
 }
 
 change_styles(heading)
 
+
 heading.style.textAlign
-function change_styles(node) {
-    node.style.color = "white"
-    node.style.backgroundColor = "black"
-    node.style.textAlign = "center"
-}
+
 
 
 
@@ -30,6 +27,16 @@ bttn.onmouseover = () => {
     bttn.style.left = String(random_(10, 90)) + "vw"
     bttn.style.top = String(random_(40, 80)) + "vh"
 }
+
+
+bttn2.onmousemove = (event) => {
+    console.log(event.clientX)
+    console.log(bttn2.getBoundingClientRect().x)
+    bttn2.style.left = String((event.clientX / document.documentElement.scrollWidth) * 100 - 10) + "%"
+    bttn2.style.top = String(event.clientY / document.documentElement.scrollHeight * 100 - 5) + "%"
+}
+
+
 
 bttn.onclick = () => {
     alert("Как ты это сделал?")
